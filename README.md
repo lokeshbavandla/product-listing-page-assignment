@@ -1,7 +1,7 @@
 ## Introduction
 This repository contains a Product Listing Page, which is a built on the Next JS framework. This readme file will guide you through the setup process and explain how to run the project locally.
 
-### Description:
+### Project Description:
 - Implemented a Search Feature to filter the product based on the Product Title.
 - Included animations to make the website user experience smooth.
 - Utilized the Image Component of Next Js to better handle the image and optimize the image loading process.
