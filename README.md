@@ -23,7 +23,7 @@ Before you begin, make sure you have the following installed on your system:
 1. **Clone the repository:**  
 
 ```bash
-
+    git clone https://github.com/lokeshbavandla/product-listing-page-assignment.git
 ```
 
 2. **Navigate to the project directory:** 
@@ -32,7 +32,8 @@ Before you begin, make sure you have the following installed on your system:
     cd <project-directory>
 ```
 
-3. **Install dependencies:**  
+3. **Install dependencies:**
+
 If you're using npm:
 
 ```bash
