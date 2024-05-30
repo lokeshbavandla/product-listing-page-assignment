@@ -1,20 +1,26 @@
 "use client"
 
 import SearchBar from "@/components/SearchBar";
-import ProductDisplay from "@/components/ProductDisplay";
 import { useEffect, useState } from "react";
 import AllProductsDisplay from "@/components/AllProductsDisplay";
+import Loading from "./loading";
 
 export default function Home() {
 
   const [products,setProducts] = useState([]);
   const [searchValue,setSearchValue] = useState('');
+  const [loading,setLoading] = useState(true);
 
   const productsData = async()=>{
-    const res = await fetch('https://fakestoreapi.com/products');
-    const data = await res.json();
-    setProducts(data);
-    console.log(data);
+    try {
+      const res = await fetch('https://fakestoreapi.com/products');
+      const data = await res.json();
+      setProducts(data);
+      setLoading(false);
+
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   useEffect(()=>{
@@ -27,11 +33,15 @@ export default function Home() {
   );
 
   return (
-    <div>
-      <SearchBar setSearchValue={setSearchValue}/>
-      <div className="w-full cursor-pointer">
-        <AllProductsDisplay products={searchValue=='' ? products : filteredProducts}/>
-      </div>
-    </div>
+    <>
+      { !loading ? (<div>
+        <SearchBar setSearchValue={setSearchValue}/>
+        <div className="w-full cursor-pointer">
+          <AllProductsDisplay products={searchValue=='' ? products : filteredProducts}/>
+        </div>
+      </div>) :
+      (<Loading />)}
+    </>
+   
   );
 }
